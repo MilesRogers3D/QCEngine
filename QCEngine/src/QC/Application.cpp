@@ -1,5 +1,8 @@
 #include "Application.h"
 
+#include "QC/Events/ApplicationEvent.h"
+#include "QC/Log.h"
+
 namespace QC
 {
 	Application::Application()
@@ -14,6 +17,9 @@ namespace QC
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(1280, 720);
+		QC_TRACE(e);
+
 		while (true);
 	}
 }

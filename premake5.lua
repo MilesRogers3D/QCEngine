@@ -18,6 +18,11 @@ project "QCEngine"
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "qcpch.h"
+    pchsource "QCEngine/src/qcpch.cpp"
+
+    forceincludes  { "qcpch.h" }
+
     files
     {
         "%{prj.name}/src/**.h",
@@ -26,6 +31,7 @@ project "QCEngine"
 
     includedirs
     {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include"
     }
 
@@ -65,6 +71,8 @@ project "Sandbox"
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    forceincludes  { "qcpch.h" }
 
     files
     {

@@ -9,3 +9,5 @@
 #else
 	#error QC Engine currently only supports Windows!
 #endif
+
+#define BIT(x) (1 << x)

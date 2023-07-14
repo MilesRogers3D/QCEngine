@@ -1,9 +1,8 @@
 #pragma once
 
-#include <memory>
-
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace QC
 {
@@ -38,4 +37,4 @@ namespace QC
 #define QC_ERROR(...)        ::QC::Log::GetClientLogger()->error(__VA_ARGS__)
 #define QC_FATAL(...)        ::QC::Log::GetClientLogger()->critical(__VA_ARGS__)
 
-// Todo: If dist build, do not include any logging
+// TODO (Miles): If dist build, do not include any logging

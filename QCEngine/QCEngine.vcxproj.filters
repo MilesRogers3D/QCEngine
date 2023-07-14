@@ -4,6 +4,9 @@
     <Filter Include="QC">
       <UniqueIdentifier>{F9745900-E500-880B-4EAF-880B3A5A880B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="QC\Events">
+      <UniqueIdentifier>{BDAE2C6E-2919-E1E4-7257-928ADE00BF39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\QC\Application.h">
@@ -15,10 +18,23 @@
     <ClInclude Include="src\QC\EntryPoint.h">
       <Filter>QC</Filter>
     </ClInclude>
+    <ClInclude Include="src\QC\Events\ApplicationEvent.h">
+      <Filter>QC\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\QC\Events\Event.h">
+      <Filter>QC\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\QC\Events\KeyEvent.h">
+      <Filter>QC\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\QC\Events\MouseEvent.h">
+      <Filter>QC\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\QC\Log.h">
       <Filter>QC</Filter>
     </ClInclude>
     <ClInclude Include="src\QCEngine.h" />
+    <ClInclude Include="src\qcpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\QC\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\QC\Log.cpp">
       <Filter>QC</Filter>
     </ClCompile>
+    <ClCompile Include="src\qcpch.cpp" />
   </ItemGroup>
 </Project>
