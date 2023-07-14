@@ -1,0 +1,3 @@
+[submodule "QCEngine/vendor/spdlog"]
+	path = QCEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
