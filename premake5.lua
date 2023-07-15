@@ -10,6 +10,12 @@ workspace "QCEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to the root folder
+IncludeDir = {}
+IncludeDir["GLFW"] = "QCEngine/vendor/GLFW/include"
+
+include "QCEngine/vendor/GLFW"
+
 project "QCEngine"
     location "QCEngine"
     kind "SharedLib"
@@ -32,7 +38,15 @@ project "QCEngine"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib",
+        "dwmapi.lib"
     }
 
     filter "system:windows"

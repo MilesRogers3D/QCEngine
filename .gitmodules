@@ -1,3 +1,6 @@
 [submodule "QCEngine/vendor/spdlog"]
 	path = QCEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "QCEngine/vendor/GLFW"]
+	path = QCEngine/vendor/GLFW
+	url = https://github.com/glfw/glfw.git

@@ -33,6 +33,9 @@
     <ClInclude Include="src\QC\Log.h">
       <Filter>QC</Filter>
     </ClInclude>
+    <ClInclude Include="src\QC\Window.h">
+      <Filter>QC</Filter>
+    </ClInclude>
     <ClInclude Include="src\QCEngine.h" />
     <ClInclude Include="src\qcpch.h" />
   </ItemGroup>
