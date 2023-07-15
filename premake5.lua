@@ -51,7 +51,7 @@ project "QCEngine"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
+        staticruntime "Off"
         systemversion "latest"
 
         defines
@@ -68,14 +68,17 @@ project "QCEngine"
     filter "configurations:Debug"
         defines "QC_DEBUG"
         symbols "On"
+        runtime "Debug"
 
     filter "configurations:Release"
         defines "QC_RELEASE"
         optimize "On"
+        runtime "Release"
 
     filter "configurations:Distribution"
         defines "QC_DIST"
         optimize "On"
+        runtime "Release"
 
 
 project "Sandbox"
@@ -110,14 +113,20 @@ project "Sandbox"
         "QC_PLATFORM_WINDOWS"
     }
 
+    filter "system:windows"
+        staticruntime "On"
+
     filter "configurations:Debug"
         defines "QC_DEBUG"
         symbols "On"
+        runtime "Debug"
 
     filter "configurations:Release"
         defines "QC_RELEASE"
         optimize "On"
+        runtime "Release"
 
     filter "configurations:Distribution"
         defines "QC_DIST"
         optimize "On"
+        runtime "Release"
