@@ -7,12 +7,12 @@
 
 namespace QC
 {
-#define BIND_EVENT_FN(x) std::(&x, this, std::placeholders::_1)
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application::Application()
 	{
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
 
 	Application::~Application()
@@ -22,7 +22,11 @@ namespace QC
 
 	void Application::OnEvent(Event& e)
 	{
-		QC_CORE_INFO("{0}", e);
+		// Dispatch WindowClosed event
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+
+		QC_CORE_TRACE("{0}", e);
 	}
 
 	void Application::Run()
@@ -33,5 +37,11 @@ namespace QC
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
 		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 }
