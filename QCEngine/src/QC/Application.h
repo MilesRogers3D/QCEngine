@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
 #include "Window.h"
 
 namespace QC 
@@ -14,9 +15,8 @@ namespace QC
 
 		void Run();
 		void OnEvent(Event& e);
-	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};
