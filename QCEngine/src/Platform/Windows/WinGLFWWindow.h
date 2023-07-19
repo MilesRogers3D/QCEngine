@@ -6,11 +6,11 @@
 
 namespace QC
 {
-	class WindowsWindow : public Window
+	class WinGLFWWindow : public Window
 	{
 	public:
-		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		WinGLFWWindow(const WindowProps& props);
+		virtual ~WinGLFWWindow();
 
 		void OnUpdate() override;
 

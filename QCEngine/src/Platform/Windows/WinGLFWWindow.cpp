@@ -1,4 +1,4 @@
-#include "WindowsWindow.h"
+#include "WinGLFWWindow.h"
 
 #include "QC/Events/ApplicationEvent.h"
 #include "QC/Events/MouseEvent.h"
@@ -17,20 +17,20 @@ namespace QC
 
 	Window* Window::Create(const WindowProps& props)
 	{
-		return new WindowsWindow(props);
+		return new WinGLFWWindow(props);
 	}
 
-	WindowsWindow::WindowsWindow(const WindowProps& props)
+	WinGLFWWindow::WinGLFWWindow(const WindowProps& props)
 	{
 		Init(props);
 	}
 
-	WindowsWindow::~WindowsWindow()
+	WinGLFWWindow::~WinGLFWWindow()
 	{
 		Shutdown();
 	}
 
-	void WindowsWindow::Init(const WindowProps& props)
+	void WinGLFWWindow::Init(const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
@@ -139,18 +139,18 @@ namespace QC
 		});
 	}
 
-	void WindowsWindow::Shutdown()
+	void WinGLFWWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
 	}
 
-	void WindowsWindow::OnUpdate()
+	void WinGLFWWindow::OnUpdate()
 	{
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 	}
 
-	void WindowsWindow::SetVSync(bool enabled)
+	void WinGLFWWindow::SetVSync(bool enabled)
 	{
 		if (enabled)
 			glfwSwapInterval(1);
@@ -160,7 +160,7 @@ namespace QC
 		m_Data.VSync = enabled;
 	}
 
-	bool WindowsWindow::IsVSync() const
+	bool WinGLFWWindow::IsVSync() const
 	{
 		return m_Data.VSync;
 	}

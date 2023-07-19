@@ -114,7 +114,7 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        staticruntime "On"
+        staticruntime "Off"
 
     filter "configurations:Debug"
         defines "QC_DEBUG"
